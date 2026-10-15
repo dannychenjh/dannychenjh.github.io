@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danny | Senior Customer Quality Engineer</title>
+<meta name="description" content="Danny, Senior Customer Quality Engineer with 14 years in QA/QC, supplier quality, and customer quality. Resume and portfolio.">
+<meta property="og:title" content="Danny | Senior Customer Quality Engineer">
+<meta property="og:description" content="14 years in QA/QC, supplier quality, and customer quality. Batam, Indonesia.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14161b;
+    --ink-2: #252932;
+    --text: #3d414c;
+    --muted: #8a8e99;
+    --paper: #f5f2ec;
+    --card: #fffdf9;
+    --line: #dfd9ce;
+    --accent: #9a6a36;     /* bronze */
+    --accent-2: #1f4a4f;   /* deep teal */
+    --serif: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+    --sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    font-family: var(--sans); background: var(--paper); color: var(--text);
+    font-size: 15.5px; line-height: 1.7; font-weight: 300; -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent-2); text-decoration: none; }
+  strong { font-weight: 500; color: var(--ink); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Sticky nav ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 50; background: rgba(20,22,27,.92);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; gap: 16px; }
+  .brand { font-family: var(--serif); font-size: 1.25rem; color: #f5efe4; font-weight: 500; letter-spacing: .02em; }
+  .brand span { color: #c9a274; }
+  .topbar nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .topbar nav a {
+    font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: #aeb2bc;
+    padding: 4px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s;
+  }
+  .topbar nav a:hover { color: #c9a274; border-bottom-color: #c9a274; }
+
+  /* ---------- Hero ---------- */
+  header.hero { background: var(--ink); color: #e9e6df; padding: 72px 0 0; position: relative; overflow: hidden; }
+  header.hero::before {
+    content: ""; position: absolute; right: -180px; top: -160px; width: 560px; height: 560px; border-radius: 50%;
+    border: 1px solid rgba(201,162,116,.18);
+    box-shadow: 0 0 0 80px rgba(201,162,116,.035), 0 0 0 160px rgba(201,162,116,.02);
+  }
+  .role-line { font-size: .75rem; letter-spacing: .28em; text-transform: uppercase; color: #c9a274; font-weight: 500; }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 500; font-size: clamp(4rem, 11vw, 7.5rem);
+    line-height: .92; color: #fbf8f2; margin-top: 18px; letter-spacing: -.01em;
+  }
+  .hero .title { font-family: var(--serif); font-style: italic; font-size: 1.7rem; color: #d8c7ad; margin-top: 10px; }
+  .hero .pitch { margin-top: 26px; max-width: 660px; color: #c3c7d0; font-size: 1.02rem; }
+  .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500;
+    padding: 12px 22px; border: 1px solid #c9a274; color: #e9e6df; background: transparent; cursor: pointer;
+    font-family: var(--sans); transition: background .25s, color .25s;
+  }
+  .btn:hover { background: #c9a274; color: var(--ink); }
+  .btn.solid { background: #c9a274; color: var(--ink); }
+  .btn.solid:hover { background: #dcb88e; }
+
+  .stats {
+    margin-top: 64px; display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+  .stats > div { padding: 26px 22px 30px 0; border-right: 1px solid rgba(255,255,255,.08); }
+  .stats > div + div { padding-left: 22px; }
+  .stats > div:last-child { border-right: none; }
+  .stats .n { font-family: var(--serif); font-size: 3rem; color: #fbf8f2; line-height: 1; font-weight: 500; }
+  .stats .n em { font-style: normal; color: #c9a274; }
+  .stats .l { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: #8f94a0; margin-top: 8px; }
+
+  .hero-photo {
+    position: absolute; right: 28px; top: 72px; width: 200px; height: 200px;
+    object-fit: cover; border-radius: 50%; border: 1px solid rgba(201,162,116,.45);
+    box-shadow: 0 0 0 10px rgba(201,162,116,.06);
+  }
+  
+  /* ---------- Sections ---------- */
+  section { padding: 100px 0 0; }
+  .sec-title { display: flex; align-items: baseline; gap: 16px; margin-bottom: 40px; }
+  .sec-title .no { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 1.1rem; }
+  .sec-title h2 { font-family: var(--serif); font-weight: 500; font-size: 2.5rem; color: var(--ink); letter-spacing: -.01em; }
+  .sec-title::after { content: ""; flex: 1; height: 1px; background: var(--line); transform: translateY(-6px); }
+
+  /* ---------- About ---------- */
+  .about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start; }
+  .about p { margin-bottom: 16px; font-size: 1rem; }
+  .about p strong { color: var(--ink); }
+  .facts { border-top: 1px solid var(--line); }
+  .fact { display: grid; grid-template-columns: 130px 1fr; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: .92rem; }
+  .fact dt { font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); padding-top: 3px; font-weight: 500; }
+  .fact dd { color: var(--ink-2); }
+
+  /* ---------- Experience ---------- */
+  .job { display: grid; grid-template-columns: 220px 1fr; gap: 44px; padding: 44px 0; border-top: 1px solid var(--line); }
+  .job:first-of-type { border-top: none; padding-top: 0; }
+  .period { font-size: .78rem; letter-spacing: .08em; color: var(--muted); }
+  .co { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); font-weight: 500; margin-top: 6px; line-height: 1.2; }
+  .loc { font-size: .84rem; color: var(--muted); margin-top: 4px; }
+  .job-body h3 { font-family: var(--serif); font-size: 1.65rem; font-weight: 500; color: var(--ink); line-height: 1.2; }
+  .scope { font-size: .86rem; color: var(--accent-2); margin-top: 6px; }
+  .label { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin: 24px 0 10px; font-weight: 500; }
+  ul.points { list-style: none; }
+  ul.points li { position: relative; padding-left: 22px; margin-bottom: 9px; font-size: .95rem; }
+  ul.points li::before { content: ""; position: absolute; left: 0; top: .75em; width: 10px; height: 1px; background: var(--accent); }
+  ul.points.wins li::before { background: var(--accent-2); }
+  ul.points.wins li { color: var(--text); }
+  .tags { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-size: .74rem; color: var(--ink-2); border: 1px solid var(--line); background: #efeae0; padding: 4px 12px; }
+
+  /* ---------- Skills ---------- */
+  .skills { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
+  .skill-block { padding: 30px 30px 30px 0; border-bottom: 1px solid var(--line); }
+  .skill-block:nth-child(odd) { border-right: 1px solid var(--line); }
+  .skill-block:nth-child(even) { padding-left: 30px; }
+  .skill-block h4 { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; color: var(--ink); margin-bottom: 14px; }
+  .skill-block .tags { margin-top: 0; }
+
+  /* ---------- Projects ---------- */
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .project { background: var(--card); border: 1px solid var(--line); padding: 36px 32px; display: flex; flex-direction: column; transition: transform .35s, box-shadow .35s; }
+  .project:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -22px rgba(20,22,27,.35); }
+  .badge { align-self: flex-start; font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--accent); color: var(--accent); }
+  .badge.live { border-color: var(--accent-2); color: var(--accent-2); }
+  .project h3 { font-family: var(--serif); font-size: 2.1rem; font-weight: 500; color: var(--ink); margin-top: 18px; line-height: 1.1; }
+  .project .kind { font-size: .78rem; color: var(--muted); margin-top: 6px; letter-spacing: .04em; }
+  .project p { margin-top: 14px; font-size: .95rem; }
+  .project .tags { margin-top: 20px; }
+  .project .links { margin-top: auto; padding-top: 26px; }
+  .project .links a { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; border-bottom: 1px solid var(--accent-2); padding-bottom: 3px; }
+
+  /* ---------- Education & certs ---------- */
+  .edu { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; }
+  .edu h3 { font-family: var(--serif); font-size: 1.75rem; font-weight: 500; color: var(--ink); line-height: 1.2; }
+  .edu .org { color: var(--accent-2); margin-top: 6px; }
+  .edu .period { margin-top: 8px; }
+  .certs { list-style: none; }
+  .certs li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: .93rem; }
+  .certs li:first-child { padding-top: 0; }
+  .certs li span { color: var(--muted); }
+
+  /* ---------- Contact ---------- */
+  .contact-box { background: var(--ink); color: #e9e6df; padding: 64px 56px; position: relative; overflow: hidden; }
+  .contact-box h2 { font-family: var(--serif); font-weight: 500; font-size: 2.8rem; color: #fbf8f2; line-height: 1.1; }
+  .contact-box h2 em { color: #c9a274; font-style: italic; }
+  .contact-box p { margin-top: 18px; color: #bfc3cc; max-width: 620px; }
+  .contact-box .actions { margin-top: 34px; }
+
+  footer { margin-top: 90px; padding: 34px 0 44px; font-size: .85rem; color: var(--muted); border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer em { font-family: var(--serif); font-size: 1.1rem; color: var(--accent); }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .about { grid-template-columns: 1fr; gap: 36px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stats > div { border-right: none; padding: 22px 0; }
+    .stats > div + div { padding-left: 0; }
+    .stats > div:nth-child(odd) { padding-right: 16px; }
+    .stats > div:nth-child(even) { padding-left: 16px; border-left: 1px solid rgba(255,255,255,.08); }
+    .job { grid-template-columns: 1fr; gap: 14px; }
+    .projects { grid-template-columns: 1fr; }
+    .edu { grid-template-columns: 1fr; gap: 26px; }
+    .skills { grid-template-columns: 1fr; }
+    .skill-block:nth-child(odd) { border-right: none; }
+    .skill-block:nth-child(even) { padding-left: 0; }
+    .contact-box { padding: 48px 28px; }
+  }
+  @media (max-width: 600px) {
+    .topbar nav { display: none; }
+    .hero-photo { position: static; display: block; width: 130px; height: 130px; margin-bottom: 24px; }
+    .sec-title h2 { font-size: 2rem; }
+    .contact-box h2 { font-size: 2.2rem; }
+    .fact { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  @media print {
+    .topbar, .actions, .contact-box .actions { display: none; }
+    body { background: #fff; color: #000; }
+    header.hero { background: #fff; color: #000; padding: 0; }
+    header.hero::before { display: none; }
+    .hero h1, .stats .n, .sec-title h2, .co, .job-body h3, .project h3 { color: #000; }
+    .stats > div { border: none; }
+    .stats .l, .hero .pitch, .role-line, .hero .title { color: #333; }
+    .stats .n em { color: #000; }
+    .reveal { opacity: 1; transform: none; }
+    .project { box-shadow: none; }
+    .contact-box { background: #fff; color: #000; padding: 20px 0; }
+    .contact-box h2, .contact-box p { color: #000; }
+    .topbar { display: none; }
+    section { padding-top: 40px; break-inside: avoid; }
+    .job { break-inside: avoid; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">Danny<span>.</span></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#portfolio">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="hero-photo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEA3ADcAAD/6xaJSlACEQAAAAEAABZ/anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAFllqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOmNkMjg4N2ZkLWQyMjAtNDk0ZC04YTI5LTE2YzA3YmEyNDE0NwAAAAOUanVtYgAAAClqdW1kYzJhcwARABCAAACqADibcQNjMnBhLmFzc2VydGlvbnMAAAAAuWp1bWIAAABEanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5pbmdyZWRpZW50LnYzAAAAABhjMnNoSyeLZJNfzq3VzVUelKcwjwAAAG1jYm9yo2lkYzpmb3JtYXRqaW1hZ2UvanBlZ2ppbnN0YW5jZUlEeCx4bXA6aWlkOjFmNTFiMjllLTY5NzQtNDQwYS05ZmIzLWVjOWFkY2Q3NGVjYmxyZWxhdGlvbnNoaXBocGFyZW50T2YAAAHianVtYgAAAEFqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmFjdGlvbnMudjIAAAAAGGMyc2hjTPlWFkBMllnJXqhvP3e9AAABmWNib3KiZ2FjdGlvbnOComZhY3Rpb25rYzJwYS5vcGVuZWRqcGFyYW1ldGVyc6FraW5ncmVkaWVudHOBomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCKBf28FIGnU+J9pUIqa+nx8Q9cxmakn04l0AZI3q0D3KRmYWN0aW9ueB1jb20uYW50aHJvcGljLmNsYXVkZS5wcm92aWRlZGpwYXJhbWV0ZXJzoXgfY29tLmFudGhyb3BpYy5vcmlnaW4tY29uZmlkZW5jZWd1bmtub3dua2Rlc2NyaXB0aW9ueGZDbGF1ZGUgcHJvdmlkZWQgdGhpcyBmaWxlIGF0IHRoZSByZXF1ZXN0IG9mIGEgdXNlciBhbmQgbWF5IGhhdmUgY3JlYXRlZCBvciBtb2RpZmllZCB0aGUgZmlsZSBjb250ZW50cy5tc29mdHdhcmVBZ2VudKFkbmFtZWZDbGF1ZGVyYWxsQWN0aW9uc0luY2x1ZGVk9QAAAMhqdW1iAAAAQGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaGFzaC5kYXRhAAAAABhjMnNoeJXrLkPrYW0BrDDa8efRPwAAAIBjYm9ypWNhbGdmc2hhMjU2Y3BhZE4AAAAAAAAAAAAAAAAAAGRoYXNoWCCPkAdqRtd2svXkF/oIIzRRLxh/GU5OjW7mGHMl6prDcGRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBRmbGVuZ3RoGRaLAAACPmp1bWIAAAAnanVtZGMyY2wAEQAQgAAAqgA4m3EDYzJwYS5jbGFpbS52MgAAAAIPY2JvcqVjYWxnZnNoYTI1NmlzaWduYXR1cmV4TXNlbGYjanVtYmY9L2MycGEvdXJuOmMycGE6Y2QyODg3ZmQtZDIyMC00OTRkLThhMjktMTZjMDdiYTI0MTQ3L2MycGEuc2lnbmF0dXJlamluc3RhbmNlSUR4LHhtcDppaWQ6MzYxMzk4NWEtNmY5Ny00ODkwLThlNzUtMTQyZmUzZjUxMmJhcmNyZWF0ZWRfYXNzZXJ0aW9uc4OiY3VybHgtc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5pbmdyZWRpZW50LnYzZGhhc2hYIIoF/bwUgadT4n2lQipr6fHxD1zGZqSfTiXQBkjerQPcomN1cmx4KnNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuYWN0aW9ucy52MmRoYXNoWCDV+Q27g3dkpKAAPFMFXHwXmBrEDhYvM6H+B6kEF6rJm6JjdXJseClzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmhhc2guZGF0YWRoYXNoWCBVPsgxbnQj0gzlj1UJ+019cUjIrbhlSo2XgBxpCum4m3RjbGFpbV9nZW5lcmF0b3JfaW5mb6NkbmFtZW9BbnRocm9waWMgRmlsZXNndmVyc2lvbmUxLjAuMGtzcGVjVmVyc2lvbmUyLjQuMAAAEDhqdW1iAAAAKGp1bWRjMmNzABEAEIAAAKoAOJtxA2MycGEuc2lnbmF0dXJlAAAAEAhjYm9y0oRZAhKiASYYIVkCCjCCAgYwggGNoAMCAQICFEDloAruwjnQvriD+gZCBT1nVRMAMAoGCCqGSM49BAMDMEkxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMS4wLAYDVQQDEyVBbnRocm9waWMgQ29udGVudCBDcmVkZW50aWFscyBSb290IENBMB4XDTI2MDgwNzE4NDM1NloXDTI4MDgwNjE5NDM1NlowRDEXMBUGA1UEChMOQW50aHJvcGljLCBQQkMxKTAnBgNVBAMTIEFudGhyb3BpYyBDbGF1ZGUgQ29udGVudCBTaWduaW5nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEmHoKa8tQGAUU1TS9QqU5W0Tp2N3XsvlK7BfQt6YWKwEzd2R3/dzKPEUDdCjlLjp9fT+KFjRVnuZ9v0oXvTe3k6NYMFYwDgYDVR0PAQH/BAQDAgeAMBUGA1UdJQQOMAwGCisGAQQBg+heAgEwDAYDVR0TAQH/BAIwADAfBgNVHSMEGDAWgBTOUeIEgU5kWyP448TPmj6cwddcwjAKBggqhkjOPQQDAwNnADBkAjAxcx0UngF60stVjs5G4T2eiptsBk5mf9oCtfJPAUBl8qs/PEXa8+gk1/X5QJ2DVcYCMHBfXN31YapiSqYvlIWrDVDJKOvXMl+kkz37Wt0PBI8sw486Mq6JeOhT+lRR4b1HCaFjcGFkWQ2eAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="Danny">
+    <div class="role-line">Senior Customer Quality Engineer · Batam, Indonesia</div>
+    <h1>Danny</h1>
+    <div class="title">Supplier &amp; Customer Quality · Process Improvement · Web App Builder</div>
+    <p class="pitch">
+      Quality professional with 14 years across QA/QC, supplier quality, and customer quality. I turn complaints
+      into durable fixes through 8D, containment, and data-driven process improvement, and I also build practical web apps.
+    </p>
+    <div class="actions">
+      <a class="btn solid" href="#contact">Get in touch</a>
+      <a class="btn" href="https://www.linkedin.com/in/dannychenjh/" target="_blank" rel="noopener">LinkedIn</a>
+      <button class="btn" id="printBtn" type="button">Print resume</button>
+      <a class="btn" href="Danny_Resume.pdf" download>Download CV</a>
+    </div>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about" class="reveal">
+    <div class="sec-title"><span class="no">01</span><h2>About</h2></div>
+    <div class="about">
+      <div>
+        <p>
+          I am a <strong>Senior Customer Quality Engineer</strong> at Infineon Technologies in Batam, handling
+          complaints for customers in Europe, America, Japan, and Korea. My work covers the full loop: containment,
+          8D, root-cause analysis, and verifying that fixes hold.
+        </p>
+        <p>
+          Before Infineon, I spent about <strong>10 years at Transcal</strong>, where I moved from QA Executive to
+          QA/QC Manager. That role covered IATF 16949 certification, process capability studies, and supplier
+          quality for automotive and aviation seating. I also spent a year as a <strong>Senior Supplier Quality
+          Engineer at PCI</strong>, a Celestica company, managing NCMR and MRB decisions.
+        </p>
+        <p>
+          Outside work, I build small, practical web apps: Belajar Paritta, a learning app for Buddhist chants,
+          and Perencana Menu Keluarga, a family meal planner. I like tools that are simple to use and solve a real problem.
+        </p>
+      </div>
+      <dl class="facts">
+        <div class="fact"><dt>Location</dt><dd>Batam, Indonesia</dd></div>
+        <div class="fact"><dt>Current role</dt><dd>Senior Customer Quality Engineer, Infineon</dd></div>
+        <div class="fact"><dt>Experience</dt><dd>14 years in QA/QC, supplier and customer quality</dd></div>
+        <div class="fact"><dt>Education</dt><dd>B.B.A., Universitas Internasional Batam</dd></div>
+        <div class="fact"><dt>Languages</dt><dd>Indonesian (native), English (business fluent), Mandarin (basic)</dd></div>
+        <div class="fact"><dt>Standards</dt><dd>IATF 16949, ISO 9001, EASA Part 21, 8D, PPAP, FMEA</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="experience" class="reveal">
+    <div class="sec-title"><span class="no">02</span><h2>Experience</h2></div>
+
+    <article class="job">
+      <div>
+        <div class="period">Jan 2023 — Present</div>
+        <div class="co">Infineon Technologies</div>
+        <div class="loc">Batam, Indonesia</div>
+      </div>
+      <div class="job-body">
+        <h3>Senior Customer Quality Engineer</h3>
+        <div class="scope">Customers in Europe, America, Japan &amp; Korea · Power devices, DSO300/430, TDSON, QFP/QFN</div>
+        <div class="label">Responsibilities</div>
+        <ul class="points">
+          <li>Led cross-functional teams to resolve customer complaints quickly and effectively.</li>
+          <li>Ran event evaluation and containment to prevent escalation from customer line disruptions.</li>
+          <li>Served as primary contact for complaint topics across four regions.</li>
+          <li>Represented the site in BE Critical 8D sharing and read-across activities.</li>
+          <li>Maintained the problem-solving database and monitored complaint trends to prevent recurrence.</li>
+        </ul>
+        <div class="label">Achievements</div>
+        <ul class="points wins">
+          <li><strong>88% productivity gain</strong> by building a Tableau dashboard for automated tracking.</li>
+          <li><strong>54% faster 8D completion</strong> for GC customers, with zero escalations.</li>
+          <li><strong>40% lower defect rate</strong> and zero complaints on HVDriver products after enforcing implementation actions.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">8D</span><span class="tag">Containment</span><span class="tag">Complaint Management</span>
+          <span class="tag">Tableau</span><span class="tag">Read-Across</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="job">
+      <div>
+        <div class="period">Jan 2022 — Jan 2023</div>
+        <div class="co">PCI Private Limited</div>
+        <div class="loc">a Celestica company · Batam</div>
+      </div>
+      <div class="job-body">
+        <h3>Senior Supplier Quality Engineer</h3>
+        <div class="scope">Electrical, plastic, rubber, mechanical, paper parts · PCBA, LCD, touch panels</div>
+        <div class="label">Responsibilities</div>
+        <ul class="points">
+          <li>Resolved supplier non-conformance (NCMR) and material quality issues.</li>
+          <li>Facilitated Material Review Board (MRB) meetings to confirm and contain defective parts.</li>
+          <li>Reviewed supplier 8D CAPA effectiveness and drove corrective actions.</li>
+          <li>Monitored SRN closure in SAP to reduce backlog and align dispositions with suppliers.</li>
+          <li>Built supplier scorecards and led improvement plans for suppliers with high reject rates.</li>
+        </ul>
+        <div class="label">Achievements</div>
+        <ul class="points wins">
+          <li><strong>25% shorter SCAR closure time</strong> with a standard 8D-format CAPA reporting system.</li>
+          <li><strong>40% faster SRN and return PO creation</strong> in SAP through a standard work instruction and training module.</li>
+          <li><strong>50% faster NCMR resolution</strong> with an open-NCMR monitoring report.</li>
+          <li><strong>20% fewer display-related returns</strong> with an LED/LCD display tester.</li>
+          <li><strong>70% of aging low-capacity battery defects recovered</strong> with a battery capacity tester and charging stations.</li>
+          <li><strong>25% lower DPPM</strong> for a local plastic-part supplier through on-site coaching and pre-shipment inspection.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Supplier Quality</span><span class="tag">MRB</span><span class="tag">NCMR</span>
+          <span class="tag">SAP</span><span class="tag">8D CAPA</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="job">
+      <div>
+        <div class="period">Dec 2011 — Jan 2022 · 10 yrs</div>
+        <div class="co">Transcal Private Limited</div>
+        <div class="loc">Batam, Indonesia</div>
+      </div>
+      <div class="job-body">
+        <h3>QA Executive &amp; QA/QC Manager</h3>
+        <div class="scope">Automotive, aviation, marine, and train seat covers</div>
+        <div class="label">Responsibilities</div>
+        <ul class="points">
+          <li>Supported the Quality Director in maintaining ISO 9001, IATF 16949, and EASA Part 21 Subpart G systems.</li>
+          <li>Ran internal audits and monthly quality objective reviews across departments.</li>
+          <li>Performed Cpk/Ppk studies, GR&amp;R, and Xbar-R control charts.</li>
+          <li>Established FMEA, control plans, and work instructions; coordinated PPAP submissions and CoC release.</li>
+          <li>Planned supplier audits and led incoming, in-process, and final quality control.</li>
+        </ul>
+        <div class="label">Achievements</div>
+        <ul class="points wins">
+          <li>Promoted to QA/QC Manager, leading quality control, team management, and process improvement.</li>
+          <li>Led <strong>IATF 16949:2016 certification with zero major findings</strong>.</li>
+          <li>Won new business from Honda Accessories Europe and Singapore Airline Engineering with in-house lab testing: <strong>90% shorter lead times, 80% lower costs</strong> than third-party labs.</li>
+          <li><strong>80% less laminated-pad scrap</strong> on aircraft seating by adding a pre-conditioning room and re-characterizing lamination parameters.</li>
+          <li><strong>70% less broken-seam scrap</strong> by installing servo motor technology and needle management.</li>
+          <li>Recovered <strong>SGD 120,000</strong> in non-conforming material claims through data-driven supplier negotiation.</li>
+          <li><strong>80% fewer non-conforming materials</strong> after an on-site audit of a PVC leather supplier's new facility.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">IATF 16949</span><span class="tag">ISO 9001</span><span class="tag">EASA Part 21</span>
+          <span class="tag">PPAP</span><span class="tag">FMEA</span><span class="tag">GR&amp;R</span><span class="tag">Cpk/Ppk</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="sec-title"><span class="no">03</span><h2>Skills &amp; Tools</h2></div>
+    <div class="skills">
+      <div class="skill-block">
+        <h4>Quality Methods</h4>
+        <div class="tags">
+          <span class="tag">8D</span><span class="tag">Root-Cause Analysis</span><span class="tag">Five Whys</span>
+          <span class="tag">Fault-Tree Analysis</span><span class="tag">CAPA</span><span class="tag">Containment</span>
+          <span class="tag">PFMEA</span><span class="tag">SPC</span><span class="tag">Cpk/Ppk</span><span class="tag">GR&amp;R / MSA</span>
+          <span class="tag">APQP / PPAP</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Systems &amp; Standards</h4>
+        <div class="tags">
+          <span class="tag">IATF 16949</span><span class="tag">ISO 9001</span><span class="tag">EASA Part 21</span>
+          <span class="tag">Supplier Quality</span><span class="tag">MRB</span><span class="tag">Change Management</span>
+          <span class="tag">Internal Audits</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Tools</h4>
+        <div class="tags">
+          <span class="tag">Excel</span><span class="tag">Tableau</span><span class="tag">SAP</span>
+          <span class="tag">Python (learning)</span><span class="tag">SQL (learning)</span><span class="tag">HTML / CSS / JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Languages</h4>
+        <div class="tags">
+          <span class="tag">Indonesian · native</span><span class="tag">English · business fluent</span>
+          <span class="tag">Mandarin · basic conversation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="reveal">
+    <div class="sec-title"><span class="no">04</span><h2>Projects</h2></div>
+    <div class="projects">
+
+      <article class="project">
+        <span class="badge">Web App</span>
+        <h3>Belajar Paritta</h3>
+        <div class="kind">Progressive Web App for learning Paritta</div>
+        <p>
+          A learning app for lay Buddhists to study Paritta (Buddhist protective chants). It includes the
+          Pāli text with Indonesian meaning, daily quotes, short "Tahukah kamu?" facts, and a quiz.
+        </p>
+        <div class="tags">
+          <span class="tag">PWA</span><span class="tag">Content Design</span><span class="tag">Quiz</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="badge">Web App</span>
+        <h3>Perencana Menu Keluarga</h3>
+        <div class="kind">Family meal-planning web app</div>
+        <p>
+          Helps households plan weekly menus quickly.
+        </p>
+        <div class="tags">
+          <span class="tag">PWA</span><span class="tag">Planning Tool</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="badge">Web App</span>
+        <h3>Rally Ganda</h3>
+        <div class="kind">Doubles session organizer for tennis and padel</div>
+        <p>
+          Organizes doubles sessions with fair partner rotation, so every player gets balanced matches and rests.
+        </p>
+        <div class="tags">
+          <span class="tag">Sports</span><span class="tag">Scheduling</span><span class="tag">Rotation Logic</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="badge">Web App</span>
+        <h3>IELTS Gen</h3>
+        <div class="kind">IELTS practice generator</div>
+        <p>
+          Generates IELTS practice material to support preparation for speaking and writing sections.
+        </p>
+        <div class="tags">
+          <span class="tag">Education</span><span class="tag">Content Generation</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="badge">Web App</span>
+        <h3>Tagihan Keluarga</h3>
+        <div class="kind">Family bill tracker</div>
+        <p>
+          Keeps family bills in one place, with due dates and payment status, so nothing is missed.
+        </p>
+        <div class="tags">
+          <span class="tag">Finance</span><span class="tag">Reminders</span><span class="tag">Household</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <span class="badge">Web App</span>
+        <h3>BG Remover</h3>
+        <div class="kind">Background removal tool for photos</div>
+        <p>
+          Removes image backgrounds quickly for profile photos and product images.
+        </p>
+        <div class="tags">
+          <span class="tag">Image Tool</span><span class="tag">Utility</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="sec-title"><span class="no">05</span><h2>Education &amp; Certifications</h2></div>
+    <div class="edu">
+      <div>
+        <h3>Bachelor of Business Administration</h3>
+        <div class="org">Universitas Internasional Batam</div>
+        <div class="period">Aug 2011 — Apr 2015</div>
+      </div>
+      <ul class="certs">
+        <li>Lean Six Sigma Green Belt <span>· CSSC, 2021</span></li>
+        <li>IRCA Quality Management System Lead Auditor <span>· 2015</span></li>
+        <li>IATF 16949:2016 Process Approach Auditor (1st/2nd Party) <span>· 2017</span></li>
+        <li>PFMEA, PPAP, APQP, MSA, and SPC <span>· 2016</span></li>
+        <li>8D Problem Solving, 5 Why, FMEA, SPC, and Customer Complaint Management <span>· Infineon, 2023</span></li>
+        <li>Tableau Essentials <span>· Infineon, 2023</span></li>
+        <li>Project Management Essentials and Machine Learning Fundamentals <span>· Infineon, 2026</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="sec-title"><span class="no">06</span><h2>Contact</h2></div>
+    <div class="contact-box">
+      <h2>Let's talk about <em>quality</em> that holds.</h2>
+      <p>
+        Open to quality, supplier quality, and manufacturing improvement roles. Happy to talk about
+        opportunities in Batam, Singapore, or wider ASEAN and international markets.
+      </p>
+      <div class="actions">
+        <a class="btn solid" href="mailto:dannychenjh@gmail.com">dannychenjh@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/dannychenjh/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Danny · References available on request</span>
+    <em>Quality, measured in outcomes.</em>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script>
+  document.getElementById("printBtn").addEventListener("click", function () {
+    try { window.print(); } catch (e) {}
+  });
+</script>
+</body>
+</html>
