@@ -245,6 +245,14 @@
   @media print {
     .scroll-bar, .cursor { display: none; }
   }
+  /* Phone: compact top bar that hides on scroll down and returns on scroll up */
+  @media (max-width: 640px) {
+    .topbar { transition: transform .3s ease; }
+    .topbar.hide { transform: translateY(-100%); }
+    .topbar .wrap { height: auto; min-height: 52px; padding: 10px 16px; flex-wrap: wrap; row-gap: 6px; }
+    .topbar nav { width: 100%; overflow-x: auto; white-space: nowrap; gap: 16px; scrollbar-width: none; }
+    .topbar nav::-webkit-scrollbar { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -595,7 +603,15 @@
     var h = document.documentElement;
     var max = (h.scrollHeight - h.clientHeight) || 1;
     if (bar) bar.style.width = (h.scrollTop / max * 100) + '%';
+    var tb = document.querySelector('.topbar');
+    var y = window.pageYOffset || h.scrollTop;
+    if (tb && typeof lastY === 'number') {
+      if (y > lastY && y > 120) tb.classList.add('hide');
+      else if (y < lastY) tb.classList.remove('hide');
+    }
+    lastY = y;
   }
+  var lastY = 0;
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
