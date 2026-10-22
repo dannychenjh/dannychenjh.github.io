@@ -139,6 +139,8 @@
   .skill-block:nth-child(even) { padding-left: 30px; }
   .skill-block h4 { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; color: var(--ink); margin-bottom: 14px; }
   .skill-block .tags { margin-top: 0; }
+  .sub-label { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin: 16px 0 8px; }
+  .skill-block h4 + .sub-label { margin-top: 0; }
 
   /* ---------- Projects ---------- */
   .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
@@ -322,8 +324,10 @@
         <div class="fact"><dt>Current role</dt><dd>Senior Customer Quality Engineer, Infineon</dd></div>
         <div class="fact"><dt>Experience</dt><dd>14 years in QA/QC, supplier and customer quality</dd></div>
         <div class="fact"><dt>Education</dt><dd>B.B.A., Universitas Internasional Batam</dd></div>
-        <div class="fact"><dt>Languages</dt><dd>Indonesian (native), English (business fluent), Mandarin (basic)</dd></div>
-        <div class="fact"><dt>Standards &amp; Methods</dt><dd>IATF 16949, ISO 9001, EASA Part 21, 8D, PPAP, FMEA</dd></div>
+        <div class="fact"><dt>Languages</dt><dd>Bahasa Indonesia (native), English (business fluent), Mandarin (basic)</dd></div>
+        <div class="fact"><dt>Problem Solving</dt><dd>8D, Root-Cause Analysis, 3x5 Whys, Fault-Tree Analysis</dd></div>
+        <div class="fact"><dt>Quality Systems</dt><dd>IATF 16949, ISO 9001, EASA Part 21</dd></div>
+        <div class="fact"><dt>Tools</dt><dd>Excel (VBA Macros), Tableau, SAP, Python (learning)</dd></div>
       </dl>
     </div>
   </section>
@@ -339,11 +343,11 @@
       </div>
       <div class="job-body">
         <h3>Senior Customer Quality Engineer</h3>
-        <div class="scope">Customers in Europe, America, Japan &amp; Korea · Power semiconductors for switching and power control: DSO 300/430 mil, Smart7 TSDSO 150 mil, HSOF, QFP, QFN, VSON, TDSON</div>
+        <div class="scope">Customers in Europe, America, Japan &amp; Korea · Power semiconductors for switching and power control · Small outline packages with leads on two sides: DSO 300/430 mil, Smart7 TSDSO 150 mil, HSOF · Quad flat and no-lead packages: QFP, QFN, VSON, TDSON</div>
         <div class="label">Responsibilities</div>
         <ul class="points">
           <li>Led cross-functional teams on customer complaints, covering event evaluation, containment, and 8D.</li>
-          <li>Served as primary contact for quality topics across four regions.</li>
+          <li>Served as primary contact for customers in Europe, America, Japan, and Korea.</li>
           <li>Represented the site in BE Critical 8D sharing and read-across activities.</li>
           <li>Maintained the problem-solving database and monitored complaint trends.</li>
         </ul>
@@ -444,23 +448,31 @@
       <div class="skill-block">
         <h4>Containment</h4>
         <div class="tags">
-          <span class="tag">Stock Assessment</span><span class="tag">Risk Assessment</span>
+          <span class="tag">Stock Assessment (In-house, In-transit, At Customer)</span><span class="tag">Risk Assessment</span>
           <span class="tag">Recall &amp; Re-screening Decision</span><span class="tag">Recovery Plan</span>
         </div>
       </div>
       <div class="skill-block">
-        <h4>Failure Analysis</h4>
+        <h4>Failure Analysis (Semiconductor Package)</h4>
+        <div class="sub-label">Non-Destructive</div>
         <div class="tags">
-          <span class="tag">Electrical Curve Tracer</span><span class="tag">IR-LIT Hotspot</span><span class="tag">Optical Microscopy</span>
-          <span class="tag">SAM</span><span class="tag">2D &amp; 3D X-ray</span><span class="tag">SEM with EDX</span>
-          <span class="tag">ToF-SIMS</span><span class="tag">Decapsulation</span><span class="tag">Cross-Sectioning</span>
-          <span class="tag">Wire Pull</span>
+          <span class="tag">Electrical Curve Tracer</span><span class="tag">InfraRed Lock-In Thermography (IR-LIT) Hotspot</span>
+          <span class="tag">Optical Microscopy</span><span class="tag">Scanning Acoustic Microscopy (SAM)</span><span class="tag">2D and 3D X-ray</span>
+        </div>
+        <div class="sub-label">Surface Analysis</div>
+        <div class="tags">
+          <span class="tag">Scanning Electron Microscopy (SEM) with Energy-Dispersive X-ray (EDX)</span>
+          <span class="tag">Time-of-Flight Secondary Ion Mass Spectrometry (ToF-SIMS)</span>
+        </div>
+        <div class="sub-label">Destructive</div>
+        <div class="tags">
+          <span class="tag">Decapsulation (Mechanical, Plasma, Chemical)</span><span class="tag">Cross-Sectioning</span><span class="tag">Wire Pull</span>
         </div>
       </div>
       <div class="skill-block">
         <h4>Process &amp; Measurement</h4>
         <div class="tags">
-          <span class="tag">PFMEA</span><span class="tag">SPC</span><span class="tag">MSA</span>
+          <span class="tag">PFMEA</span><span class="tag">Statistical Process Control (SPC)</span><span class="tag">MSA</span>
           <span class="tag">GR&amp;R</span><span class="tag">Cpk/Ppk</span><span class="tag">PPAP</span>
         </div>
       </div>
@@ -482,7 +494,7 @@
       <div class="skill-block">
         <h4>Languages</h4>
         <div class="tags">
-          <span class="tag">Indonesian · native</span><span class="tag">English · business fluent</span>
+          <span class="tag">Bahasa Indonesia · native</span><span class="tag">English · business fluent</span>
           <span class="tag">Mandarin · basic conversation</span>
         </div>
       </div>
