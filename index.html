@@ -72,7 +72,7 @@
     font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: #a7b4a8;
     padding: 4px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s;
   }
-  .topbar nav a:hover { color: #7fd1b9; border-bottom-color: #7fd1b9; }
+  .topbar nav a:hover, .topbar nav a.active { color: #7fd1b9; border-bottom-color: #7fd1b9; }
 
   /* ---------- Hero ---------- */
   header.hero { background: var(--ink); color: #e3e9df; padding: 72px 0 88px; position: relative; overflow: hidden; }
@@ -129,14 +129,32 @@
   ul.points li::before { content: ""; position: absolute; left: 0; top: .75em; width: 10px; height: 1px; background: var(--accent); }
   ul.points.wins li::before { background: var(--accent-2); }
   ul.points.wins li { color: var(--text); }
+
+  details.more { margin-top: 22px; border-top: 1px dashed var(--line); padding-top: 14px; }
+  details.more summary {
+    list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+    font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500;
+    color: var(--accent); padding: 8px 0;
+  }
+  details.more summary::-webkit-details-marker { display: none; }
+  details.more summary::before { content: "+"; display: inline-grid; place-items: center; width: 22px; height: 22px; border: 1px solid var(--accent); font-size: 1rem; line-height: 1; letter-spacing: 0; }
+  details.more[open] summary::before { content: "\2212"; }
+  details.more summary:hover { color: var(--ink); }
+  details.more summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  details.more .hide, details.more[open] .show { display: none; }
+  details.more[open] .hide { display: inline; }
   .tags { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { font-size: .74rem; color: var(--ink-2); border: 1px solid var(--line); background: #efeae0; padding: 4px 12px; }
 
   /* ---------- Skills ---------- */
   .skills { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
   .skill-block { padding: 30px 30px 30px 0; border-bottom: 1px solid var(--line); }
-  .skill-block:nth-child(odd) { border-right: 1px solid var(--line); }
-  .skill-block:nth-child(even) { padding-left: 30px; }
+  .skill-block:nth-child(even) { padding-left: 30px; padding-right: 0; border-left: 1px solid var(--line); }
+  .skill-block.wide { grid-column: 1 / -1; padding: 30px 0; border-left: none; }
+  .skill-block.wide ~ .skill-block:nth-child(even) { padding-left: 0; padding-right: 30px; border-left: none; }
+  .skill-block.wide ~ .skill-block:nth-child(odd) { padding-left: 30px; padding-right: 0; border-left: 1px solid var(--line); }
+  .fa-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 32px; }
+  .fa-groups .sub-label { margin-top: 0; }
   .skill-block h4 { font-family: var(--serif); font-size: 1.45rem; font-weight: 500; color: var(--ink); margin-bottom: 14px; }
   .skill-block .tags { margin-top: 0; }
   .sub-label { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin: 16px 0 8px; }
@@ -191,8 +209,9 @@
     .projects { grid-template-columns: 1fr; }
     .edu { grid-template-columns: 1fr; gap: 26px; }
     .skills { grid-template-columns: 1fr; }
-    .skill-block:nth-child(odd) { border-right: none; }
-    .skill-block:nth-child(even) { padding-left: 0; }
+    .skill-block, .skill-block:nth-child(n), .skill-block.wide ~ .skill-block:nth-child(n) { padding-left: 0; padding-right: 0; border-left: none; }
+    .fa-groups { grid-template-columns: 1fr; gap: 0; }
+    .fa-groups .fa-col + .fa-col .sub-label { margin-top: 16px; }
     .contact-box { padding: 48px 28px; }
     .hero-photo { position: static; display: block; width: 150px; height: 150px; margin-bottom: 28px; }
   }
@@ -344,13 +363,6 @@
       <div class="job-body">
         <h3>Senior Customer Quality Engineer</h3>
         <div class="scope">Customers in Europe, America, Japan &amp; Korea · Power semiconductors for switching and power control · Small outline packages with leads on two sides: DSO 300/430 mil, Smart7 TSDSO 150 mil, HSOF · Quad flat and no-lead packages: QFP, QFN, VSON, TDSON</div>
-        <div class="label">Responsibilities</div>
-        <ul class="points">
-          <li>Led cross-functional teams on customer complaints, covering event evaluation, containment, and 8D.</li>
-          <li>Served as primary contact for customers in Europe, America, Japan, and Korea.</li>
-          <li>Represented the site in BE Critical 8D sharing and read-across activities.</li>
-          <li>Maintained the problem-solving database and monitored complaint trends.</li>
-        </ul>
         <div class="label">Achievements</div>
         <ul class="points wins">
           <li><strong>Over 90% less preparation time</strong> for event charts with a semi-automated PPT generator built on an Excel dashboard with VBA macros (from 1–2 hours to 5 minutes).</li>
@@ -362,6 +374,16 @@
           <span class="tag">8D</span><span class="tag">Containment</span><span class="tag">Customer Issue Management</span>
           <span class="tag">Tableau</span><span class="tag">Read-Across</span>
         </div>
+        <details class="more">
+          <summary><span class="show">Show responsibilities</span><span class="hide">Show less</span></summary>
+          <div class="label">Responsibilities</div>
+          <ul class="points">
+            <li>Led cross-functional teams on customer complaints, covering event evaluation, containment, and 8D.</li>
+            <li>Served as primary contact for customers in Europe, America, Japan, and Korea.</li>
+            <li>Represented the site in BE Critical 8D sharing and read-across activities.</li>
+            <li>Maintained the problem-solving database and monitored complaint trends.</li>
+          </ul>
+        </details>
       </div>
     </article>
 
@@ -374,28 +396,34 @@
       <div class="job-body">
         <h3>Senior Supplier Quality Engineer</h3>
         <div class="scope">Electrical (IC, resistors, batteries, cable assemblies) · Mechanical (plastic, rubber, screws, nuts, metal plates) · Paper (boxes, manuals, labels) · Assemblies (PCB, LCD, touch panels)</div>
-        <div class="label">Responsibilities</div>
-        <ul class="points">
-          <li>Resolved supplier non-conformance (NCMR) and material quality issues.</li>
-          <li>Ran Material Review Board (MRB) meetings.</li>
-          <li>Reviewed supplier 8D CAPA effectiveness and drove corrective actions.</li>
-          <li>Tracked SRN closures in SAP, pushing suppliers to expedite dispositions and escalating overdue items.</li>
-          <li>Reviewed and finalized supplier scorecards, driving improvement plans for problematic suppliers.</li>
-        </ul>
         <div class="label">Achievements</div>
         <ul class="points wins">
           <li><strong>25% shorter SCAR closure time</strong> with a standardized CAPA reporting format and tracking record.</li>
           <li><strong>40% improvement in SRN and Return PO efficiency</strong> in SAP through a standard work instruction and training module.</li>
           <li><strong>50% faster NCMR resolution</strong> with an open-NCMR monitoring report that uses Excel formulas to auto-calculate aging and highlight items.</li>
-          <li><strong>20% fewer display-related returns</strong> with an LCD display tester.</li>
-          <li><strong>70% fewer</strong> home-icon key-cap slant and dimension returns through on-site coaching.</li>
           <li><strong>70% of aging low-capacity battery defects recovered</strong> with a battery capacity tester and charging stations.</li>
-          <li><strong>25% lower DPPM</strong> for a local plastic-part supplier through coaching and pre-shipment inspection.</li>
         </ul>
         <div class="tags">
           <span class="tag">Supplier Quality</span><span class="tag">MRB</span><span class="tag">NCMR</span>
           <span class="tag">SAP</span><span class="tag">8D CAPA</span>
         </div>
+        <details class="more">
+          <summary><span class="show">Show responsibilities &amp; more achievements</span><span class="hide">Show less</span></summary>
+          <div class="label">Responsibilities</div>
+          <ul class="points">
+            <li>Resolved supplier non-conformance (NCMR) and material quality issues.</li>
+            <li>Ran Material Review Board (MRB) meetings.</li>
+            <li>Reviewed supplier 8D CAPA effectiveness and drove corrective actions.</li>
+            <li>Tracked SRN closures in SAP, pushing suppliers to expedite dispositions and escalating overdue items.</li>
+            <li>Reviewed and finalized supplier scorecards, driving improvement plans for problematic suppliers.</li>
+          </ul>
+          <div class="label">More achievements</div>
+          <ul class="points wins">
+            <li><strong>20% fewer display-related returns</strong> with an LCD display tester.</li>
+            <li><strong>70% fewer</strong> home-icon key-cap slant and dimension returns through on-site coaching.</li>
+            <li><strong>25% lower DPPM</strong> for a local plastic-part supplier through coaching and pre-shipment inspection.</li>
+          </ul>
+        </details>
       </div>
     </article>
 
@@ -408,29 +436,35 @@
       <div class="job-body">
         <h3>QA Executive &amp; QA/QC Manager</h3>
         <div class="scope">Automotive seat covers with airbag seam control · Aviation curtains, interior soft trim, and foam seating · Rail seating, curtains, and interior soft trim</div>
-        <div class="label">Responsibilities</div>
-        <ul class="points">
-          <li>Supported the Quality Director in maintaining ISO 9001, IATF 16949, and EASA Part 21 Subpart G systems.</li>
-          <li>Ran internal audits and monthly quality objective reviews.</li>
-          <li>Owned process capability (Cpk/Ppk), Xbar-R charts, GR&amp;R studies, and calibration.</li>
-          <li>Maintained FMEA, control plans, and work instructions; coordinated PPAP submissions and CoC release.</li>
-          <li>Ran supplier audits and performance reviews, and led incoming, in-process, and final quality control.</li>
-        </ul>
         <div class="label">Achievements</div>
         <ul class="points wins">
-          <li>Promoted to QA/QC Manager, leading quality control and team management.</li>
           <li>Led <strong>IATF 16949:2016 certification with zero major findings</strong>.</li>
           <li>Set up an in-house lab with standardized reporting and control charts, which helped win new business in Europe and Singapore: <strong>90% shorter lead times, 80% lower costs</strong> than third-party labs.</li>
-          <li><strong>100% on-time deliveries</strong> restored for an automotive customer's headphone bags by streamlining assembly for right-first-time quality.</li>
           <li><strong>80% less laminated-pad scrap</strong> on aircraft seating by adding a pre-conditioning room and revised lamination parameters.</li>
           <li><strong>70% less broken-seam scrap</strong> by servo motor and needle management upgrades.</li>
-          <li>Resolved an <strong>SGD 120,000</strong> non-conforming material claim through data-driven supplier negotiation.</li>
-          <li><strong>80% fewer non-conforming materials</strong> after supporting an on-site audit in China and a PVC supplier's new site approval.</li>
         </ul>
         <div class="tags">
           <span class="tag">IATF 16949</span><span class="tag">ISO 9001</span><span class="tag">EASA Part 21</span>
           <span class="tag">PPAP</span><span class="tag">FMEA</span><span class="tag">GR&amp;R</span><span class="tag">Cpk/Ppk</span>
         </div>
+        <details class="more">
+          <summary><span class="show">Show responsibilities &amp; more achievements</span><span class="hide">Show less</span></summary>
+          <div class="label">Responsibilities</div>
+          <ul class="points">
+            <li>Supported the Quality Director in maintaining ISO 9001, IATF 16949, and EASA Part 21 Subpart G systems.</li>
+            <li>Ran internal audits and monthly quality objective reviews.</li>
+            <li>Owned process capability (Cpk/Ppk), Xbar-R charts, GR&amp;R studies, and calibration.</li>
+            <li>Maintained FMEA, control plans, and work instructions; coordinated PPAP submissions and CoC release.</li>
+            <li>Ran supplier audits and performance reviews, and led incoming, in-process, and final quality control.</li>
+          </ul>
+          <div class="label">More achievements</div>
+          <ul class="points wins">
+            <li>Promoted to QA/QC Manager, leading quality control and team management.</li>
+            <li><strong>100% on-time deliveries</strong> restored for an automotive customer's headphone bags by streamlining assembly for right-first-time quality.</li>
+            <li>Resolved an <strong>SGD 120,000</strong> non-conforming material claim through data-driven supplier negotiation.</li>
+            <li><strong>80% fewer non-conforming materials</strong> after supporting an on-site audit in China and a PVC supplier's new site approval.</li>
+          </ul>
+        </details>
       </div>
     </article>
   </section>
@@ -452,21 +486,29 @@
           <span class="tag">Recall &amp; Re-screening Decision</span><span class="tag">Recovery Plan</span>
         </div>
       </div>
-      <div class="skill-block">
+      <div class="skill-block wide">
         <h4>Failure Analysis (Semiconductor Package)</h4>
-        <div class="sub-label">Non-Destructive</div>
-        <div class="tags">
-          <span class="tag">Electrical Curve Tracer</span><span class="tag">InfraRed Lock-In Thermography (IR-LIT) Hotspot</span>
-          <span class="tag">Optical Microscopy</span><span class="tag">Scanning Acoustic Microscopy (SAM)</span><span class="tag">2D and 3D X-ray</span>
-        </div>
-        <div class="sub-label">Surface Analysis</div>
-        <div class="tags">
-          <span class="tag">Scanning Electron Microscopy (SEM) with Energy-Dispersive X-ray (EDX)</span>
-          <span class="tag">Time-of-Flight Secondary Ion Mass Spectrometry (ToF-SIMS)</span>
-        </div>
-        <div class="sub-label">Destructive</div>
-        <div class="tags">
-          <span class="tag">Decapsulation (Mechanical, Plasma, Chemical)</span><span class="tag">Cross-Sectioning</span><span class="tag">Wire Pull</span>
+        <div class="fa-groups">
+          <div class="fa-col">
+          <div class="sub-label">Non-Destructive</div>
+          <div class="tags">
+            <span class="tag">Electrical Curve Tracer</span><span class="tag">InfraRed Lock-In Thermography (IR-LIT) Hotspot</span>
+            <span class="tag">Optical Microscopy</span><span class="tag">Scanning Acoustic Microscopy (SAM)</span><span class="tag">2D and 3D X-ray</span>
+          </div>
+          </div>
+          <div class="fa-col">
+          <div class="sub-label">Surface Analysis</div>
+          <div class="tags">
+            <span class="tag">Scanning Electron Microscopy (SEM) with Energy-Dispersive X-ray (EDX)</span>
+            <span class="tag">Time-of-Flight Secondary Ion Mass Spectrometry (ToF-SIMS)</span>
+          </div>
+          </div>
+          <div class="fa-col">
+          <div class="sub-label">Destructive</div>
+          <div class="tags">
+            <span class="tag">Decapsulation (Mechanical, Plasma, Chemical)</span><span class="tag">Cross-Sectioning</span><span class="tag">Wire Pull</span>
+          </div>
+          </div>
         </div>
       </div>
       <div class="skill-block">
@@ -659,8 +701,39 @@
     lastY = y;
   }
   var lastY = 0;
+
+  // Highlight the nav link of the section being read
+  var links = [].slice.call(document.querySelectorAll('.topbar nav a'));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var navEl = document.querySelector('.topbar nav');
+  var current = -1;
+  function setActive() {
+    var h = document.documentElement;
+    var sy = window.pageYOffset || h.scrollTop;
+    var y = sy + window.innerHeight * 0.3;
+    var idx = -1;
+    targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top + sy <= y) idx = i; });
+    if (window.innerHeight + sy >= h.scrollHeight - 4) idx = targets.length - 1;
+    if (idx === current) return;
+    current = idx;
+    links.forEach(function (a, i) { if (i === idx) a.classList.add('active'); else a.classList.remove('active'); });
+    var a = links[idx];
+    if (a && navEl && navEl.scrollWidth > navEl.clientWidth) navEl.scrollLeft = a.offsetLeft - (navEl.clientWidth - a.offsetWidth) / 2;
+  }
+  addEventListener('scroll', setActive, { passive: true });
+  addEventListener('resize', setActive);
+  setActive();
+
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // Open all "show more" blocks when printing
+  var wasClosed = [];
+  addEventListener('beforeprint', function () {
+    wasClosed = [].slice.call(document.querySelectorAll('details.more:not([open])'));
+    wasClosed.forEach(function (d) { d.setAttribute('open', ''); });
+  });
+  addEventListener('afterprint', function () { wasClosed.forEach(function (d) { d.removeAttribute('open'); }); wasClosed = []; });
 
 })();
 </script>
