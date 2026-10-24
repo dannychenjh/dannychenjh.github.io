@@ -146,6 +146,17 @@
   .tags { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { font-size: .74rem; color: var(--ink-2); border: 1px solid var(--line); background: #efeae0; padding: 4px 12px; }
 
+
+  .to-top {
+    position: fixed; right: 18px; bottom: 18px; z-index: 60; width: 44px; height: 44px;
+    border: 1px solid rgba(127,209,185,.5); background: var(--ink); color: #7fd1b9; font-size: 1.2rem; line-height: 1;
+    cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: opacity .25s, transform .25s, visibility .25s, background .2s, color .2s;
+  }
+  .to-top.show { opacity: 1; visibility: visible; transform: none; }
+  .to-top:hover { background: #7fd1b9; color: var(--ink); }
+  .to-top:focus-visible { outline: 2px solid #7fd1b9; outline-offset: 3px; }
+
   /* ---------- Skills ---------- */
   .skills { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); }
   .skill-block { padding: 30px 30px 30px 0; border-bottom: 1px solid var(--line); }
@@ -170,18 +181,28 @@
   .project .kind { font-size: .78rem; color: var(--muted); margin-top: 6px; letter-spacing: .04em; }
   .project p { margin-top: 14px; font-size: .95rem; }
   .project .tags { margin-top: 20px; }
-  .app-link { display: inline-block; margin-top: 18px; font-size: .92rem; font-weight: 600; color: var(--accent-2); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
-  .app-link:hover { color: var(--ink); }
+  .project { position: relative; cursor: pointer; }
+  .project:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .app-link {
+    margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px;
+    font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600;
+    color: var(--accent-2); text-decoration: none; border: 1px solid var(--accent-2);
+    padding: 10px 16px; transition: background .25s, color .25s;
+  }
+  .project .tags { margin-bottom: 26px; }
+  .app-link::after { content: ""; position: absolute; inset: 0; }
+  .app-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .project:hover .app-link, .app-link:hover { background: var(--accent-2); color: #f4f7ef; }
   .project .links { margin-top: auto; padding-top: 26px; }
   .project .links a { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; border-bottom: 1px solid var(--accent-2); padding-bottom: 3px; }
 
   /* ---------- Education & certs ---------- */
-  .edu { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; }
+  .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
   .edu h3 { font-family: var(--serif); font-size: 1.75rem; font-weight: 500; color: var(--ink); line-height: 1.2; }
   .edu .org { color: var(--accent-2); margin-top: 6px; }
   .edu .period { margin-top: 8px; }
   .cert-head { font-family: var(--serif); font-size: 1.4rem; font-weight: 500; color: var(--ink); margin-bottom: 12px; }
-  .cert-head + .certs + .cert-head, .certs + .cert-head { margin-top: 32px; }
+  .cert-head.cert-first { margin-top: 40px; }
   .certs { list-style: none; }
   .certs li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: .93rem; }
   .certs li:first-child { padding-top: 0; }
@@ -223,7 +244,7 @@
   }
 
   @media print {
-    .topbar, .actions, .contact-box .actions { display: none; }
+    .topbar, .actions, .contact-box .actions, .to-top { display: none; }
     body { background: #fff; color: #000; }
     header.hero { background: #fff; color: #000; padding: 0; }
     header.hero::before { display: none; }
@@ -551,15 +572,15 @@
         <h3>Bachelor of Business Administration</h3>
         <div class="org">Universitas Internasional Batam</div>
         <div class="period">Aug 2011 — Apr 2015 · GPA 3.59 / 4.00</div>
-      </div>
-      <div>
-        <h4 class="cert-head">Certifications</h4>
+        <h4 class="cert-head cert-first">Certifications</h4>
         <ul class="certs">
           <li>Problem Solving Essentials &amp; Yellow Belt <span>· Infineon, 2023</span></li>
           <li>Lean Six Sigma Green Belt <span>· CSSC, 2021</span></li>
           <li>IATF 16949:2016 Process Approach Auditor (1st/2nd Party) <span>· 2017</span></li>
           <li>IRCA Quality Management System Lead Auditor <span>· 2015</span></li>
         </ul>
+      </div>
+      <div>
         <h4 class="cert-head">Training</h4>
         <ul class="certs">
           <li>Project Management Essentials <span>· Infineon, 2026</span></li>
@@ -586,10 +607,10 @@
         <p>
           Helps households plan weekly menus quickly.
         </p>
-        <a class="app-link" href="https://long-disk-7e04.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
         <div class="tags">
           <span class="tag">PWA</span><span class="tag">Planning Tool</span>
         </div>
+        <a class="app-link" href="https://long-disk-7e04.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
       </article>
 
       <article class="project">
@@ -599,10 +620,10 @@
         <p>
           Organizes doubles sessions with fair partner rotation, so every player gets balanced matches and rests.
         </p>
-        <a class="app-link" href="https://restless-term-8f78.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
         <div class="tags">
           <span class="tag">Sports</span><span class="tag">Scheduling</span><span class="tag">Rotation Logic</span>
         </div>
+        <a class="app-link" href="https://restless-term-8f78.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
       </article>
 
       <article class="project">
@@ -612,10 +633,10 @@
         <p>
           Keeps household bills and important family documents in one place, with due and expiry dates, so nothing is missed.
         </p>
-        <a class="app-link" href="https://sweet-credit-20b3.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
         <div class="tags">
           <span class="tag">Finance</span><span class="tag">Documents</span><span class="tag">Household</span>
         </div>
+        <a class="app-link" href="https://sweet-credit-20b3.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
       </article>
 
       <article class="project">
@@ -625,10 +646,10 @@
         <p>
           Generates IELTS practice material to support preparation for speaking and writing sections.
         </p>
-        <a class="app-link" href="https://calm-hall-f5d0.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
         <div class="tags">
           <span class="tag">Education</span><span class="tag">Content Generation</span>
         </div>
+        <a class="app-link" href="https://calm-hall-f5d0.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
       </article>
 
       <article class="project">
@@ -638,10 +659,10 @@
         <p>
           Removes image backgrounds quickly for profile photos and product images.
         </p>
-        <a class="app-link" href="https://silent-sun-25b4.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
         <div class="tags">
           <span class="tag">Image Tool</span><span class="tag">Utility</span>
         </div>
+        <a class="app-link" href="https://silent-sun-25b4.danny091993.workers.dev" target="_blank" rel="noopener">Open app ↗</a>
       </article>
     </div>
   </section>
@@ -669,6 +690,8 @@
     <em>Quality, measured in outcomes.</em>
   </div>
 </footer>
+
+<button type="button" class="to-top" aria-label="Back to top">↑</button>
 
 <script>
   (function () {
@@ -726,6 +749,16 @@
 
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // Back to top
+  var toTop = document.querySelector('.to-top');
+  function toggleTop() { if (toTop) toTop.classList.toggle('show', (window.pageYOffset || document.documentElement.scrollTop) > 700); }
+  addEventListener('scroll', toggleTop, { passive: true });
+  toggleTop();
+  if (toTop) toTop.addEventListener('click', function () {
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+  });
 
   // Open all "show more" blocks when printing
   var wasClosed = [];
