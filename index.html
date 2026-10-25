@@ -204,6 +204,9 @@
   .project .thumb::before { width: 220px; height: 220px; right: -60px; top: -90px; }
   .project .thumb::after { width: 140px; height: 140px; left: -40px; bottom: -70px; }
   .project .thumb svg { position: relative; z-index: 1; width: 88px; height: 88px; }
+  .project.no-link { cursor: default; }
+  .project.no-link:hover { transform: none; box-shadow: none; }
+  .app-note { margin-top: auto; align-self: flex-start; font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; color: var(--muted); padding: 11px 0; }
   .project:hover .app-link, .app-link:hover { background: var(--accent-2); color: #f4f7ef; }
   .project .links { margin-top: auto; padding-top: 26px; }
   .project .links a { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; border-bottom: 1px solid var(--accent-2); padding-bottom: 3px; }
@@ -671,6 +674,20 @@
     <div class="sec-title"><span class="no">05</span><h2>Projects</h2></div>
     <div class="projects" tabindex="0" role="region" aria-label="Projects, scroll sideways for more">
 
+      <article class="project no-link">
+        <div class="thumb" aria-hidden="true" style="--bg:#1d5d8a;--fg:#dcebf7"><svg viewBox="0 0 64 64" width="88" height="88" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="10" width="36" height="46" rx="3"/><path d="M24 10v-2h16v2M21 24l3 3 6-6M34 25h9M21 37l3 3 6-6M34 38h9M22 49h20"/></svg></div>
+        <span class="badge">Offline App</span>
+        <h3>Action Follow-up Tracker</h3>
+        <div class="kind">Offline tracker for quality action follow-ups</div>
+        <p>
+          Tracks 8D, CAPA, and audit actions with due-date reminders, three-level escalation, and Excel import/export.
+        </p>
+        <div class="tags">
+          <span class="tag">Quality</span><span class="tag">Escalation</span><span class="tag">Offline</span>
+        </div>
+        <span class="app-note">Internal tool · no public link</span>
+      </article>
+
       <article class="project">
         <div class="thumb" aria-hidden="true" style="--bg:#3a2622;--fg:#f3d9a6"><svg viewBox="0 0 64 64" width="88" height="88" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="13"/><circle cx="32" cy="32" r="7"/><path d="M13 14v12a3 3 0 0 0 6 0V14M16 14v36M49 14c-4 3-6 8-6 14h6v22"/></svg></div>
         <span class="badge">Web App</span>
@@ -770,7 +787,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© Danny Chen · References available on request · <span class="ver">v6.1 · Updated 24 Oct 2026</span></span>
+    <span>© Danny Chen · References available on request · <span class="ver">v6.2 · Updated 26 Oct 2026</span></span>
     <em>Quality, measured in outcomes.</em>
   </div>
 </footer>
