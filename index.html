@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Danny Chen's Portfolio</title>
-<meta name="description" content="Danny Chen, Staff Engineer in Customer Quality Engineering at Infineon. 14 years in QA/QC, supplier and customer quality. Open to quality, operations, and management roles.">
+<meta name="description" content="Danny Chen, Staff Engineer in Customer Quality Engineering at Infineon. 14 years in QA/QC, supplier and customer quality. Open to senior technical roles in quality, in Batam or abroad.">
 <meta property="og:title" content="Danny Chen | Staff Engineer Customer Quality Engineering">
 <meta property="og:description" content="14 years in QA/QC, supplier quality, and customer quality. Batam, Indonesia.">
 <meta property="og:type" content="website">
@@ -35,7 +35,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #13221b;
@@ -394,7 +394,7 @@
   .case dd { font-size: .93rem; color: var(--text); margin-top: 2px; }
 
   /* ---------- Career timeline ---------- */
-  .timeline { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); margin-bottom: 56px; }
+  .timeline { list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); margin-bottom: 56px; }
   .timeline li { position: relative; padding: 26px 16px 0 0; border-top: 2px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
   .timeline li::before { content: ""; position: absolute; top: -7px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); }
   .timeline li.now::before { background: var(--accent); }
@@ -472,6 +472,17 @@
     .job-body h3, .project h3, .cert-head, .edu-one h3 { font-size: 1.375rem; }
     .skill-rows > div { gap: 4px; }
   }
+  .roles { font-size: .875rem; color: var(--muted); margin-top: 6px; letter-spacing: .02em; }
+
+  /* ---------- v6.53 type fixes ---------- */
+  button { font-family: inherit; }
+  .hero .pitch { font-size: 1.125rem; }
+  .skill-rows dt, .t-role { font-weight: 500; }
+  .train dt { font-weight: 500; }
+  @media (max-width: 640px) {
+    .hero .pitch { font-size: 1rem; }
+    .sec-title h2 { font-size: 2rem; }
+  }
 </style>
 </head>
 <body>
@@ -545,19 +556,17 @@
           improvements were adopted beyond the Batam site.
         </p>
         <p>
-          Before Infineon, I spent about <strong>10 years at Transcal</strong>, growing from QA Executive to QA/QC Manager as the
-          youngest manager in the company's history and leading a team of 10. I led IATF 16949 certification with zero major
+          Before Infineon, I spent about <strong>10 years at Transcal</strong>, growing from QA Executive to QA Manager and then QA/QC Manager, leading a team of 10. I led IATF 16949 certification with zero major
           findings, owned Cpk, GR&amp;R, and calibration, and set up the company's in-house lab. I then spent a year as a
           <strong>Senior Supplier Quality Engineer at PCI</strong>, a Celestica company, running MRB meetings and supplier
           corrective actions.
         </p>
         <p>
           I apply AI and prompt engineering to speed up daily customer quality work, including data analysis, reporting, and
-          documentation. My <strong>Action Follow-up Tracker</strong> started as an offline tool for my own daily work, keeping corrective and audit actions on schedule, and I am now developing it further so it can go live. Outside work, I built <strong>Family Menu Planner</strong>, an app that creates a 7-day menu and shopping list from a family's budget and size, with portions adjusted for children and a separate menu for babies starting solid food. I handled it end to end, from design to testing, and I am now setting up online payment for its paid launch.
+          documentation. My <strong>Action Follow-up Tracker</strong> started as an offline tool for my own daily work, keeping corrective and audit actions on schedule, and I am now developing it further so it can go live. Outside work, I built <strong>Family Menu Planner</strong>, an app that creates a 7-day menu and shopping list from a family's budget and size, with portions adjusted for children and a separate menu for babies starting solid food. I handled it end to end, from design to testing, and I built it to solve our own weekly meal planning.
         </p>
         <p>
-          I am open to management, operations, and strategic roles, not only quality engineering, and I am planning a
-          master's degree in engineering, quality, or data science.
+          I am open to senior technical roles in quality, in Batam or abroad, including Europe, Singapore, and China, and I am planning a master's degree in engineering, quality, or data science.
         </p>
       </div>
     </div>
@@ -568,7 +577,8 @@
 
     <ol class="timeline" tabindex="0" aria-label="Career progression, scroll sideways for more">
       <li><span class="t-year">2011</span><span class="t-role">QA Executive</span><span class="t-co">Transcal</span></li>
-      <li><span class="t-year">2019</span><span class="t-role">QA/QC Manager</span><span class="t-co">Youngest manager in company history</span></li>
+      <li><span class="t-year">2016</span><span class="t-role">QA Manager</span><span class="t-co">Transcal · within 5 years</span></li>
+      <li><span class="t-year">2019</span><span class="t-role">QA/QC Manager</span><span class="t-co">Transcal · team of 10</span></li>
       <li><span class="t-year">2022</span><span class="t-role">Senior Supplier Quality Engineer</span><span class="t-co">PCI Electronic</span></li>
       <li><span class="t-year">2023</span><span class="t-role">Senior Customer Quality Engineer</span><span class="t-co">Infineon · individual contributor track</span></li>
       <li class="now"><span class="t-year">2026</span><span class="t-role">Staff Engineer, Customer Quality Engineering</span><span class="t-co">Infineon · technical career ladder</span></li>
@@ -654,7 +664,8 @@
         <div class="loc">Batam, Indonesia</div>
       </div>
       <div class="job-body">
-        <h3>QA Executive &amp; QA/QC Manager</h3>
+        <h3>QA/QC Manager</h3>
+        <div class="roles">QA Executive 2011–2016 · QA Manager 2016–2019 · QA/QC Manager 2019–2022</div>
         <div class="scope">Automotive seat covers with airbag seam control · Aviation curtains, interior soft trim, and foam seating · Rail seating, curtains, and interior soft trim</div>
         <div class="label">Key Achievements</div>
         <ul class="points wins">
@@ -662,6 +673,8 @@
           <li>Set up an in-house lab with standardized reporting and control charts, which helped win new automotive and aviation business in Europe and Singapore: <strong>90% shorter lead times, 80% lower costs</strong> than third-party labs.</li>
           <li><strong>80% less laminated-pad scrap</strong> on aircraft seating by adding a pre-conditioning room and revised lamination parameters.</li>
           <li><strong>70% less broken-seam scrap</strong> by servo motor and needle management upgrades.</li>
+          <li><strong>80% fewer color-mismatch incoming rejects</strong> after co-leading a 2018 on-site audit in China with the Quality Director (ISO 9001:2015 clauses) for a PVC/synthetic leather supplier's new site approval, then setting up color master sample management agreed with the supplier's key team on-site, using basic Mandarin.</li>
+          <li><strong>Acknowledged by the HQ Commercial Director</strong> for material content regulation for a European automotive customer, and for a UK luxury automotive customer: headphone bag defect and delivery recovery (<strong>100% on-time delivery</strong> restored) and extending IATF certification to the HQ site for its tender.</li>
         </ul>
         <div class="tags">
           <span class="tag">IATF 16949</span><span class="tag">ISO 9001</span><span class="tag">EASA Part 21</span>
@@ -679,10 +692,8 @@
           </ul>
           <div class="label">More achievements</div>
           <ul class="points wins">
-            <li>Promoted to QA/QC Manager as the <strong>youngest manager in the company's history</strong>, leading 10 staff: QA executive, QC supervisor, clerk, and inspectors.</li>
-            <li><strong>100% on-time deliveries</strong> restored for an automotive customer's headphone bags by streamlining assembly for right-first-time quality.</li>
+            <li>Promoted to manager within 5 years; led 10 staff: QA executive, QC supervisor, clerk, and inspectors.</li>
             <li>Recovered an <strong>SGD 120,000</strong> non-conforming material claim from a supplier through data-driven negotiation.</li>
-            <li><strong>80% fewer non-conforming materials</strong> after supporting an on-site audit in China and a PVC supplier's new site approval.</li>
           </ul>
         </details>
       </div>
@@ -761,10 +772,10 @@
         <h3>Family Menu Planner</h3>
         <div class="kind">Meal-planning web app · Indonesian language</div>
         <p>
-          Builds a 7-day family menu and shopping list from a budget and family size. Paid launch in preparation.
+          Builds a 7-day family menu and shopping list from a budget and family size.
         </p>
         <div class="tags">
-          <span class="tag">PWA</span><span class="tag">Planning Tool</span><span class="tag">Product Launch</span>
+          <span class="tag">PWA</span><span class="tag">Planning Tool</span><span class="tag">Problem Solving</span>
         </div>
         <a class="app-link" href="https://menu-keluarga-dcvsolutions.pages.dev" target="_blank" rel="noopener">Open app</a>
       </article>
@@ -782,9 +793,9 @@
   <section id="contact">
     <div class="sec-title"><span class="no" aria-hidden="true">08</span><h2>Contact</h2></div>
     <div class="contact-box">
-      <h2>Hiring in <em>quality</em> or operations?</h2>
+      <h2>Hiring a senior <em>quality</em> engineer?</h2>
       <p>
-        I am open to quality, operations, and management roles, including in Europe, Singapore, and China, and I am willing to relocate for the right opportunity. Email me or send a message on LinkedIn.
+        I am open to senior technical roles in quality, in Batam or abroad, including Europe, Singapore, and China, and I am willing to relocate for the right opportunity. Email me or send a message on LinkedIn.
       </p>
       <div class="actions">
         <a class="btn solid" href="mailto:dannychenjh@gmail.com">dannychenjh@gmail.com</a>
@@ -799,7 +810,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© Danny Chen · <span class="ver">v6.48 · Updated 15 Nov 2026</span></span>
+    <span>© Danny Chen · <span class="ver">v6.59 · Updated 15 Nov 2026</span></span>
   </div>
 </footer>
 
