@@ -54,7 +54,7 @@
   html { scroll-behavior: smooth; scroll-padding-top: 72px; }
   body {
     font-family: var(--sans); background: var(--paper); color: var(--text);
-    font-size: 15.5px; line-height: 1.7; font-weight: 300; -webkit-font-smoothing: antialiased;
+    font-size: 16px; line-height: 1.7; font-weight: 400; -webkit-font-smoothing: antialiased;
   }
   a { color: var(--accent-2); text-decoration: none; }
   strong { font-weight: 500; color: var(--ink); }
@@ -103,10 +103,10 @@
   }
   
   /* ---------- Sections ---------- */
-  section { padding: 100px 0 0; }
+  section { padding: 120px 0 0; }
   .sec-title { display: flex; align-items: baseline; gap: 16px; margin-bottom: 40px; }
-  .sec-title .no { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 1.1rem; }
-  .sec-title h2 { font-family: var(--serif); font-weight: 500; font-size: 2.25rem; line-height: 1.15; color: var(--ink); letter-spacing: -.01em; }
+  .sec-title .no { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 1.35rem; min-width: 1.6em; }
+  .sec-title h2 { font-family: var(--serif); font-weight: 500; font-size: 2.6rem; line-height: 1.15; color: var(--ink); letter-spacing: -.01em; }
   .sec-title::after { content: ""; flex: 1; height: 1px; background: var(--line); transform: translateY(-6px); }
 
   /* ---------- About ---------- */
@@ -114,7 +114,8 @@
   .comps li { padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--ink); font-size: .95rem; }
   @media (max-width: 900px) { .comps { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 560px) { .comps { grid-template-columns: 1fr; } .comps li { padding: 11px 0; } }
-  .about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start; }
+  .about > div { column-count: 2; column-gap: 56px; }
+  @media (max-width: 900px) { .about > div { column-count: 1; } }
   .about p { margin-bottom: 16px; font-size: 1rem; }
   .about p strong { color: var(--ink); }
   .facts { border-top: 1px solid var(--line); }
@@ -244,7 +245,6 @@
 
   /* ---------- Responsive ---------- */
   @media (max-width: 900px) {
-    .about { grid-template-columns: 1fr; gap: 36px; }
     .job { grid-template-columns: 1fr; gap: 14px; }
     .project { flex-basis: 62%; }
     .edu { grid-template-columns: 1fr; gap: 26px; }
@@ -363,6 +363,115 @@
   button:disabled { cursor: not-allowed; }
   a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   header.hero a:focus-visible, header.hero button:focus-visible, .topbar a:focus-visible, .contact-box a:focus-visible, .contact-box button:focus-visible { outline-color: #7fd1b9; }
+
+  /* ---------- Backend flow ---------- */
+  .flow { margin-top: 44px; padding: 32px; background: var(--card); border: 1px solid var(--line); }
+  .flow-title { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; color: var(--ink); margin-bottom: 20px; }
+  .flow-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; counter-reset: s; }
+  .flow-steps > li { position: relative; padding: 18px 20px 18px 0; border-top: 3px solid var(--accent); display: flex; flex-direction: column; gap: 4px; }
+  .flow-steps > li:not(:last-child)::after { content: ""; position: absolute; top: -9px; right: 14px; width: 12px; height: 12px; border-top: 3px solid var(--accent); border-right: 3px solid var(--accent); transform: rotate(45deg); background: transparent; }
+  .step-n { font-size: .75rem; color: var(--accent); font-weight: 600; letter-spacing: .06em; }
+  .step-name { font-family: var(--serif); font-size: 1.35rem; color: var(--ink); line-height: 1.2; }
+  .step-subs { list-style: none; margin-top: 6px; display: grid; gap: 3px; }
+  .flow-steps .step-subs li { border: 0; padding: 0; display: list-item; }
+  .step-subs li { font-size: .85rem; color: var(--muted); line-height: 1.4; }
+  .flow-note { margin: 22px 0 12px; color: var(--text); font-size: .95rem; }
+  .flow-path { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .flow-path li { font-size: .88rem; padding: 7px 12px; background: var(--paper); border: 1px solid var(--line); color: var(--ink); }
+  .flow-path { counter-reset: fp; }
+  .flow-path li::before { counter-increment: fp; content: counter(fp); font-size: .72rem; font-weight: 600; color: var(--accent); margin-right: 8px; }
+  .flow-path li { display: inline-flex; align-items: center; }
+
+  /* ---------- Selected work ---------- */
+  .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .case { background: var(--card); border: 1px solid var(--line); padding: 28px 26px; display: flex; flex-direction: column; }
+  .case-num { display: flex; align-items: baseline; gap: 10px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  .case-num .big { font-family: var(--serif); font-size: 3.4rem; line-height: 1; color: var(--accent); }
+  .case-num .unit { font-size: .9rem; color: var(--ink); font-weight: 500; }
+  .case h3 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; color: var(--ink); margin: 18px 0 14px; }
+  .case dl { display: grid; gap: 12px; }
+  .case dt { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .case dd { font-size: .93rem; color: var(--text); margin-top: 2px; }
+
+  /* ---------- Career timeline ---------- */
+  .timeline { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); margin-bottom: 56px; }
+  .timeline li { position: relative; padding: 26px 16px 0 0; border-top: 2px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+  .timeline li::before { content: ""; position: absolute; top: -7px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); }
+  .timeline li.now::before { background: var(--accent); }
+  .timeline li.now { border-top-color: var(--accent); }
+  .t-year { font-size: .75rem; color: var(--muted); letter-spacing: .04em; }
+  .t-role { font-family: var(--serif); font-size: 1.15rem; line-height: 1.25; color: var(--ink); }
+  .t-co { font-size: .82rem; color: var(--accent); }
+
+  @media (max-width: 900px) {
+    /* Keep the desktop layout; the row scrolls inside its own container instead of stacking */
+    .cases { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 16px; margin: 0 -28px; padding: 0 28px 12px; scroll-padding-left: 28px; scrollbar-width: thin; }
+    .cases > .case { flex: 0 0 min(300px, 82%); scroll-snap-align: start; }
+    .timeline { display: flex; overflow-x: auto; scroll-snap-type: x proximity; margin: 0 -28px 40px; padding: 8px 28px 12px; scroll-padding-left: 28px; scrollbar-width: thin; }
+    .timeline li { flex: 0 0 168px; scroll-snap-align: start; }
+    .flow-steps { display: flex; overflow-x: auto; scroll-snap-type: x proximity; margin: 0 -32px; padding: 10px 32px 12px; scroll-padding-left: 32px; scrollbar-width: thin; }
+    .flow-steps > li { flex: 0 0 190px; scroll-snap-align: start; }
+  }
+  @media (max-width: 560px) {
+    .flow { padding: 24px 20px; }
+    .flow-steps { margin: 0 -20px; padding: 10px 20px 12px; scroll-padding-left: 20px; }
+    .flow-steps > li { flex-basis: 165px; }
+    .step-name { font-size: 1.2rem; }
+    .case-num .big { font-size: 2.8rem; }
+  }
+
+  /* ---------- Section rhythm ---------- */
+  .about p.about-note { margin-top: 28px; padding: 4px 0 4px 20px; border-left: 3px solid var(--accent); font-family: var(--serif); font-size: 1.3rem; line-height: 1.45; color: var(--ink); }
+  .sec-intro { margin: -16px 0 28px; max-width: 640px; color: var(--text); }
+  @media (max-width: 640px) {
+    .about p.about-note { font-size: 1.15rem; }
+  }
+
+  /* ---------- Backend line, education, training ---------- */
+  .be-line { margin-top: 28px; max-width: 860px; font-size: .95rem; color: var(--text); }
+  .be-line strong { color: var(--ink); font-weight: 600; }
+  .edu-one h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: var(--ink); line-height: 1.2; }
+  .edu-one .org { color: var(--accent-2); margin-top: 6px; }
+  .edu-one .period { margin-top: 8px; }
+  .train > div { display: grid; grid-template-columns: 92px 1fr; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .train > div:first-child { padding-top: 0; }
+  .train dt { font-size: .82rem; color: var(--accent); font-weight: 600; padding-top: 2px; }
+  .train dd { font-size: .93rem; color: var(--text); }
+  @media (max-width: 560px) { .train > div { grid-template-columns: 1fr; gap: 2px; } }
+  .skill-rows { border-top: 1px solid var(--line); }
+  .skill-rows > div { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .skill-rows dt { font-family: var(--serif); font-size: 1.25rem; line-height: 1.3; color: var(--ink); }
+  .skill-rows dd { color: var(--text); padding-top: 3px; }
+  @media (max-width: 640px) { .skill-rows > div { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; } }
+  .skill-group { font-family: var(--sans); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; color: var(--accent); margin: 0 0 14px; }
+  .skill-group ~ .skill-group { margin-top: 36px; }
+  .skill-line { border-bottom: 1px solid var(--line); }
+  .skill-line { padding: 0 0 18px; color: var(--text); }
+  .nw { white-space: nowrap; }
+
+  /* ---------- Type scale (v6.48): body 16 / small 14 / label 12.5 / tag+nav 13; headings 41.6 / 24 / 20 ---------- */
+  section { padding-top: 96px; }
+  .about p, ul.points li, .comps li, .project p, .certs li, .train dd, .skill-rows dd, .skill-line, .be-line { font-size: 1rem; }
+  .period, .loc, .scope, .project .kind, .t-co, .t-year, footer { font-size: .875rem; letter-spacing: .02em; }
+  .label, .skill-group, .badge, .sub-label, .role-line, .app-note, .project .links a, .js .show-all, details.more summary, .btn, .app-link { font-size: .78rem; letter-spacing: .06em; font-weight: 500; }
+  .topbar nav a { font-size: .8125rem; font-weight: 400; }
+  .tag { font-size: .8125rem; }
+  .job-body h3, .project h3, .cert-head, .edu-one h3 { font-size: 1.5rem; line-height: 1.2; }
+  .co, .skill-rows dt, .t-role { font-size: 1.25rem; }
+  .train dt { font-size: .875rem; }
+  .skill-rows > div { gap: 44px; }
+  @media (max-width: 1100px) and (min-width: 641px) { .topbar nav { gap: 14px; } .topbar nav a { letter-spacing: .04em; } }
+  @media (max-width: 960px) and (min-width: 641px) {
+    .topbar .brand { white-space: nowrap; }
+    .topbar nav { flex: 1; min-width: 0; justify-content: flex-start; overflow-x: auto; white-space: nowrap; flex-wrap: nowrap; scrollbar-width: none; }
+    .topbar nav::-webkit-scrollbar { display: none; }
+  }
+  @media (max-width: 900px) { .skill-rows > div { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; } }
+  @media (max-width: 640px) {
+    section { padding-top: 64px; }
+    .job-body h3, .project h3, .cert-head, .edu-one h3 { font-size: 1.375rem; }
+    .skill-rows > div { gap: 4px; }
+  }
 </style>
 </head>
 <body>
@@ -376,6 +485,7 @@
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
       <a href="#portfolio">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -403,11 +513,11 @@
 <main class="wrap">
 
   <section id="competencies">
-    <div class="sec-title"><h2>Core Competencies</h2></div>
+    <div class="sec-title"><span class="no" aria-hidden="true">01</span><h2>Core Competencies</h2></div>
     <ul class="comps">
       <li>Customer Complaint Management &amp; 8D</li>
       <li>Root-Cause Analysis &amp; Containment</li>
-      <li>Backend: FOL to Test, Scan &amp; Pack</li>
+      <li>Semiconductor Backend: FOL, EOL &amp; Test</li>
       <li>Supplier Quality &amp; MRB</li>
       <li>IATF 16949 / ISO 9001 Audits</li>
       <li>SPC, MSA, PFMEA, PPAP</li>
@@ -415,10 +525,11 @@
       <li>Process Improvement &amp; Automation</li>
       <li>Dashboards: Excel VBA, Tableau, SAP</li>
     </ul>
+
   </section>
 
   <section id="about">
-    <div class="sec-title"><h2>About</h2></div>
+    <div class="sec-title"><span class="no" aria-hidden="true">02</span><h2>About</h2></div>
     <div class="about">
       <div>
         <p>
@@ -429,16 +540,16 @@
           so lessons from one site reach the others.
         </p>
         <p>
-          My program to make 8D 54% faster for Greater China customers was recognized at VP level and is used as a benchmark
-          for other sites. The semi-automated event chart generator I built cut preparation from 3–4 hours to 5 minutes and
-          was recommended for rollout to other sites.
+          I look for ways to make quality work faster and repeatable: streamlining the 8D process and automating reporting
+          with Excel VBA and Tableau, so the team spends less time on preparation and more on root cause. Two of these
+          improvements were adopted beyond the Batam site.
         </p>
         <p>
           Before Infineon, I spent about <strong>10 years at Transcal</strong>, growing from QA Executive to QA/QC Manager as the
           youngest manager in the company's history and leading a team of 10. I led IATF 16949 certification with zero major
-          findings, owned Cpk, GR&amp;R, and calibration, and set up an in-house lab that helped win new automotive and aviation
-          business in Europe and Singapore. I then spent a year as a <strong>Senior Supplier Quality Engineer at PCI</strong>,
-          a Celestica company, running MRB meetings and cutting NCMR resolution time by 50% and SCAR closure time by 25%.
+          findings, owned Cpk, GR&amp;R, and calibration, and set up the company's in-house lab. I then spent a year as a
+          <strong>Senior Supplier Quality Engineer at PCI</strong>, a Celestica company, running MRB meetings and supplier
+          corrective actions.
         </p>
         <p>
           I apply AI and prompt engineering to speed up daily customer quality work, including data analysis, reporting, and
@@ -449,18 +560,19 @@
           master's degree in engineering, quality, or data science.
         </p>
       </div>
-      <dl class="facts">
-        <div class="fact"><dt>Location</dt><dd>Batam, Indonesia</dd></div>
-        <div class="fact"><dt>Current role</dt><dd>Staff Engineer Customer Quality Engineering, Infineon</dd></div>
-        <div class="fact"><dt>Experience</dt><dd>14 years in QA/QC, supplier and customer quality</dd></div>
-        <div class="fact"><dt>Education</dt><dd>B.B.A., Universitas Internasional Batam</dd></div>
-        <div class="fact dup"><dt>Languages</dt><dd>Bahasa Indonesia (native), English (business fluent), Mandarin (basic conversation, actively studying)</dd></div>
-      </dl>
     </div>
   </section>
 
   <section id="experience">
-    <div class="sec-title"><h2>Experience</h2></div>
+    <div class="sec-title"><span class="no" aria-hidden="true">03</span><h2>Experience</h2></div>
+
+    <ol class="timeline" tabindex="0" aria-label="Career progression, scroll sideways for more">
+      <li><span class="t-year">2011</span><span class="t-role">QA Executive</span><span class="t-co">Transcal</span></li>
+      <li><span class="t-year">2019</span><span class="t-role">QA/QC Manager</span><span class="t-co">Youngest manager in company history</span></li>
+      <li><span class="t-year">2022</span><span class="t-role">Senior Supplier Quality Engineer</span><span class="t-co">PCI Electronic</span></li>
+      <li><span class="t-year">2023</span><span class="t-role">Senior Customer Quality Engineer</span><span class="t-co">Infineon · individual contributor track</span></li>
+      <li class="now"><span class="t-year">2026</span><span class="t-role">Staff Engineer, Customer Quality Engineering</span><span class="t-co">Infineon · technical career ladder</span></li>
+    </ol>
 
     <article class="job">
       <div>
@@ -471,9 +583,9 @@
       <div class="job-body">
         <h3>Staff Engineer Customer Quality Engineering</h3>
         <div class="scope">Customers in Europe, America, Japan &amp; Korea · Power semiconductors for switching and power control · Small outline packages with leads on two sides: DSO 300/430 mil, Smart7 TSDSO 150 mil, HSOF · Quad flat and no-lead packages: QFP, QFN, VSON, TDSON</div>
-        <div class="label">Achievements</div>
+        <div class="label">Key Achievements</div>
         <ul class="points wins">
-          <li><strong>54% faster 8D completion</strong> for Greater China customers, with zero escalations. Acknowledged at VP level and used as a benchmark for other sites.</li>
+          <li><strong>70% faster 8D completion</strong> for Greater China customers (10 to 3 days, against a 5-day target), with zero escalations. Acknowledged at VP level and used as a benchmark for other sites.</li>
           <li><strong>Over 95% less preparation time</strong> for event charts with a semi-automated PPT generator built on an Excel dashboard with VBA macros (from 3–4 hours to 5 minutes). Acknowledged by the BE QM Head and recommended for rollout to other sites; web-based integration is in development.</li>
           <li><strong>88% productivity gain</strong> for the CQE team, measured in weekly hours of manual preparation, by building a Tableau dashboard for automated tracking.</li>
           <li><strong>100+ customer complaints handled</strong> with zero escalations due to customer dissatisfaction.</li>
@@ -504,7 +616,7 @@
       <div class="job-body">
         <h3>Senior Supplier Quality Engineer</h3>
         <div class="scope">Electrical (IC, resistors, batteries, cable assemblies) · Mechanical (plastic, rubber, screws, nuts, metal plates) · Paper (boxes, manuals, labels) · Assemblies (PCB, LCD, touch panels)</div>
-        <div class="label">Achievements</div>
+        <div class="label">Key Achievements</div>
         <ul class="points wins">
           <li><strong>25% shorter SCAR closure time</strong> with a standardized CAPA reporting format and tracking record.</li>
           <li><strong>40% improvement in SRN and Return PO efficiency</strong> in SAP through a standard work instruction and training module.</li>
@@ -544,7 +656,7 @@
       <div class="job-body">
         <h3>QA Executive &amp; QA/QC Manager</h3>
         <div class="scope">Automotive seat covers with airbag seam control · Aviation curtains, interior soft trim, and foam seating · Rail seating, curtains, and interior soft trim</div>
-        <div class="label">Achievements</div>
+        <div class="label">Key Achievements</div>
         <ul class="points wins">
           <li>Led <strong>IATF 16949:2016 certification with zero major findings</strong>.</li>
           <li>Set up an in-house lab with standardized reporting and control charts, which helped win new automotive and aviation business in Europe and Singapore: <strong>90% shorter lead times, 80% lower costs</strong> than third-party labs.</li>
@@ -578,118 +690,56 @@
   </section>
 
   <section id="skills">
-    <div class="sec-title"><h2>Skills &amp; Tools</h2></div>
-    <div class="skills">
-      <div class="skill-block">
-        <h4>Problem Solving</h4>
-        <div class="tags">
-          <span class="tag">8D</span><span class="tag">Root-Cause Analysis</span><span class="tag">3x5 Whys</span>
-          <span class="tag">Fault-Tree Analysis</span><span class="tag">Customer Complaint Management</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h4>Containment</h4>
-        <div class="tags">
-          <span class="tag">Stock Assessment (In-house, In-transit, At Customer)</span><span class="tag">Risk Assessment</span>
-          <span class="tag">Recall &amp; Re-screening Decision</span><span class="tag">Recovery Plan</span>
-        </div>
-      </div>
-      <div class="skill-block wide">
-        <h4>Failure Analysis (Semiconductor Package): request and interpret</h4>
-        <div class="fa-groups">
-          <div class="fa-col">
-          <div class="sub-label">Non-Destructive</div>
-          <div class="tags">
-            <span class="tag">Electrical Curve Tracer</span><span class="tag">InfraRed Lock-In Thermography (IR-LIT) Hotspot</span>
-            <span class="tag">Optical Microscopy</span><span class="tag">Scanning Acoustic Microscopy (SAM)</span><span class="tag">2D and 3D X-ray</span>
-          </div>
-          </div>
-          <div class="fa-col">
-          <div class="sub-label">Surface Analysis</div>
-          <div class="tags">
-            <span class="tag">Scanning Electron Microscopy (SEM) with Energy-Dispersive X-ray (EDX)</span>
-            <span class="tag">Time-of-Flight Secondary Ion Mass Spectrometry (ToF-SIMS)</span>
-          </div>
-          </div>
-          <div class="fa-col">
-          <div class="sub-label">Destructive</div>
-          <div class="tags">
-            <span class="tag">Decapsulation (Mechanical, Plasma, Chemical)</span><span class="tag">Cross-Sectioning</span><span class="tag">Wire Pull</span>
-          </div>
-          </div>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h4>Process &amp; Measurement</h4>
-        <div class="tags">
-          <span class="tag">PFMEA</span><span class="tag">Statistical Process Control (SPC)</span><span class="tag">MSA</span>
-          <span class="tag">GR&amp;R</span><span class="tag">Cpk/Ppk</span><span class="tag">PPAP</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h4>Quality Systems &amp; Standards</h4>
-        <div class="tags">
-          <span class="tag">IATF 16949</span><span class="tag">ISO 9001</span><span class="tag">EASA Part 21</span>
-          <span class="tag">Supplier Quality Management</span><span class="tag">MRB</span><span class="tag">Internal Audits</span>
-          <span class="tag">Change Management</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h4>Tools</h4>
-        <div class="tags">
-          <span class="tag">Microsoft 365 (Excel with VBA Macros)</span><span class="tag">Tableau</span><span class="tag">SAP</span>
-        </div>
-      </div>
-      <div class="skill-block">
-        <h4>Languages</h4>
-        <div class="tags">
-          <span class="tag">Bahasa Indonesia · native</span><span class="tag">English · business fluent</span>
-          <span class="tag">Mandarin · basic conversation, actively studying</span>
-        </div>
-      </div>
-    </div>
+    <div class="sec-title"><span class="no" aria-hidden="true">04</span><h2>Skills</h2></div>
+    <h3 class="skill-group">Transferable Skills</h3>
+    <p class="skill-line">People Leadership, Stakeholder Management, Cross-cultural Communication, Training &amp; Coaching, Budget &amp; Cost Awareness, <span class="nw">Data-Driven</span> Decision Making, Data Analysis &amp; Reporting, <span class="nw">AI-assisted</span> Workflow</p>
+    <h3 class="skill-group">Languages</h3>
+    <p class="skill-line">Bahasa Indonesia (native), English (business fluent), Mandarin (basic, actively studying)</p>
+    <h3 class="skill-group">Technical Skills</h3>
+    <dl class="skill-rows">
+      <div><dt>Problem Solving</dt><dd>8D, 3×5 Whys, Fault-Tree Analysis</dd></div>
+      <div><dt>Containment</dt><dd>Stock assessment (in-house, in-transit, at customer), risk assessment, recall and re-screening decisions, recovery plans</dd></div>
+      <div><dt>Failure Analysis (request &amp; interpret)</dt><dd>Curve tracer, IR-LIT, optical microscopy, SAM, 2D/3D X-ray, SEM/EDX, ToF-SIMS, decapsulation, cross-sectioning, wire pull</dd></div>
+      <div><dt>Process &amp; Measurement</dt><dd>SPC, MSA, GR&amp;R, Cpk/Ppk, PFMEA, PPAP</dd></div>
+      <div><dt>Standards</dt><dd>IATF 16949, ISO 9001, EASA Part 21</dd></div>
+    </dl>
   </section>
 
 
   <section id="education">
-    <div class="sec-title"><h2>Education &amp; Certifications</h2></div>
+    <div class="sec-title"><span class="no" aria-hidden="true">05</span><h2>Education</h2></div>
+    <div class="edu-one">
+      <h3>Bachelor of Business Administration</h3>
+      <div class="org">Universitas Internasional Batam</div>
+      <div class="period">Aug 2011 – Apr 2015 · GPA 3.59 / 4.00 · Completed while working full-time</div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="sec-title"><span class="no" aria-hidden="true">06</span><h2>Certifications &amp; Training</h2></div>
     <div class="edu">
       <div>
-        <h3>Bachelor of Business Administration</h3>
-        <div class="org">Universitas Internasional Batam</div>
-        <div class="period">Aug 2011 – Apr 2015 · GPA 3.59 / 4.00 · Completed while working full-time</div>
-        <h4 class="cert-head cert-first">Certifications</h4>
+        <h4 class="cert-head">Certifications</h4>
         <ul class="certs">
-          <li>Problem Solving Essentials &amp; Yellow Belt <span>· Infineon, 2023</span></li>
-          <li>Lean Six Sigma Green Belt course certificate <span>· CSSC, 2021</span></li>
-          <li>IATF 16949:2016 Process Approach Auditor (1st/2nd Party) <span>· 2017</span></li>
-          <li>IRCA-certified QMS Lead Auditor course <span>· 2015</span></li>
+          <li>Problem Solving Essentials &amp; Yellow Belt <span>· Infineon Technologies, May 2023</span></li>
+          <li>Lean Six Sigma Green Belt course certificate <span>· CSSC, Feb 2021</span></li>
+          <li>IATF 16949:2016 Process Approach Audit for 1st and 2nd Party Auditor <span>· Neville Clarke, Jun 2017</span></li>
+          <li>IRCA-certified Quality Management System Lead Auditor course <span>· SQI International, Mar 2015</span></li>
         </ul>
       </div>
       <div>
         <h4 class="cert-head">Training</h4>
-        <ul class="certs training" id="training-list">
-          <li>Project Management Essentials <span>· Infineon, 2026</span></li>
-          <li>Machine Learning Fundamentals <span>· Infineon, 2026</span></li>
-          <li>Reliability: Technology and Product Reliability <span>· Infineon, 2025</span></li>
-          <li>Event Evaluation Basics <span>· 2025</span></li>
-          <li>Backend 6-Steps Manufacturing Excellence: Basic <span>· Infineon, 2024</span></li>
-          <li>8D Problem Solving, FMEA, SPC, and Customer Complaint Management <span>· Infineon, 2023</span></li>
-          <li>Tableau Essentials <span>· Infineon, 2023</span></li>
-          <li>7 Habits Foundations, Leading Basics, Deviation and Decision Management in Backend, Quality Management System and QM Manual, Change Management in Backend <span>· 2023</span></li>
-          <li>Overall Equipment Effectiveness (OEE) <span>· 2020</span></li>
-          <li>Lean Manufacturing; Cost of Quality: Interpretation and Application <span>· 2017</span></li>
-          <li>PFMEA, PPAP, APQP, MSA, and SPC <span>· 2016</span></li>
-          <li>ISO/TS 16949:2009 Quality Management System Internal Auditor <span>· 2016</span></li>
-          <li>EASA Part 21 Subpart G Introduction &amp; EASA Form 1 Completion Standards <span>· Transcal, 2015</span></li>
-        </ul>
-        <button type="button" class="show-all" aria-expanded="false" aria-controls="training-list"><span class="show">Show all training (13)</span><span class="hide">Show less</span></button>
+        <dl class="train">
+          <div><dt>2024–2026</dt><dd>Project Management Essentials, Machine Learning Fundamentals, Reliability, Event Evaluation Basics, Backend 6-Steps Manufacturing Excellence</dd></div>
+          <div><dt>2023</dt><dd>8D, FMEA, SPC, Customer Complaint Management, Tableau, 7 Habits, Leading Basics, Deviation and Decision Management, Change Management, QMS and QM Manual</dd></div>
+          <div><dt>2015–2020</dt><dd>OEE, Lean Manufacturing, Cost of Quality, APQP, PPAP, PFMEA, MSA, SPC, ISO/TS 16949 Internal Auditor, EASA Part 21 Subpart G</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 
   <section id="portfolio">
-    <div class="sec-title"><h2>Projects</h2></div>
+    <div class="sec-title"><span class="no" aria-hidden="true">07</span><h2>Projects</h2></div>
     <div class="projects" tabindex="0" role="region" aria-label="Projects, scroll sideways for more">
       <article class="project no-link">
         <div class="thumb" aria-hidden="true" style="--bg:#1d5d8a;--fg:#dcebf7"><svg viewBox="0 0 64 64" width="88" height="88" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="10" width="36" height="46" rx="3"/><path d="M24 10v-2h16v2M21 24l3 3 6-6M34 25h9M21 37l3 3 6-6M34 38h9M22 49h20"/></svg></div>
@@ -730,7 +780,7 @@
   </section>
 
   <section id="contact">
-    <div class="sec-title"><h2>Contact</h2></div>
+    <div class="sec-title"><span class="no" aria-hidden="true">08</span><h2>Contact</h2></div>
     <div class="contact-box">
       <h2>Hiring in <em>quality</em> or operations?</h2>
       <p>
@@ -749,7 +799,7 @@
 
 <footer>
   <div class="wrap">
-    <span>© Danny Chen · <span class="ver">v6.32 · Updated 15 Nov 2026</span></span>
+    <span>© Danny Chen · <span class="ver">v6.48 · Updated 15 Nov 2026</span></span>
   </div>
 </footer>
 
